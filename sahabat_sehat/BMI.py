@@ -61,5 +61,5 @@ def program_bmi():
     else:
         print("\n*Status ini berada dalam kisaran berat badan yang sehat.*")
 
-
-program_bmi()
+if __name__ == "__main__":
+    program_bmi()
