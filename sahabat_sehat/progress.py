@@ -3,8 +3,9 @@ import os
 from datetime import datetime
 
 # Lokasi file JSON penyimpanan progres
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-PROGRESS_FILE = os.path.join(BASE_DIR, "sahabat_sehat/progress.json")
+DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data")
+os.makedirs(DATA_DIR, exist_ok=True)
+PROGRESS_FILE = os.path.join(DATA_DIR, "progress.json")
 
 # ====== UTILITAS DASAR ======
 def load_progress():
@@ -61,22 +62,49 @@ def lihat_progres():
         print(f"⚖️ Berat: {nilai['berat']} kg")
 
 def grafik_mingguan():
-    """Menampilkan progres mingguan dengan grafik bar sederhana"""
+    print("\n" + "="*60)
+    print("📊  GRAFIK PROGRES MINGGUAN".center(60))
+    print("="*60)
+
     data = load_progress()
+
     if not data:
-        print("\n⚠️ Belum ada data progres untuk ditampilkan.")
+        print("❌ Belum ada data progres yang bisa ditampilkan.")
         return
+    
+    if isinstance(data, dict):
+        data = [{"tanggal": k, **v} for k, v in data.items()]
 
-    print("\n=== 📈 Grafik Progres Mingguan ===")
-    for tanggal, nilai in data.items():
-        langkah_bar = "█" * (nilai['langkah'] // 500)
-        air_bar = "█" * int(nilai['air'] * 2)
-        kalori_bar = "█" * (nilai['kalori'] // 100)
+    # Ambil maksimal 7 hari terakhir
+    last_week = data[-7:]
 
-        print(f"\n📅 {tanggal}")
-        print(f"🏃 Langkah: {langkah_bar}")
-        print(f"💧 Air: {air_bar}")
-        print(f"🔥 Kalori: {kalori_bar}")
+    if len(last_week) < 7:
+        print(f"🌱 Data kamu baru {len(last_week)} hari, grafik ditampilkan berdasarkan data yang ada.\n")
+
+    # Hitung nilai maksimum untuk skala grafik
+    max_langkah = max([d.get("langkah", 0) for d in last_week]) or 1
+    max_air = max([d.get("air", 0) for d in last_week]) or 1
+    max_kalori = max([d.get("kalori", 0) for d in last_week]) or 1
+
+    # Header tabel
+    print(f"{'📅 Tanggal':<12} | {'Langkah (bar)':<25} | {'Air (bar)':<15} | {'Kalori (bar)':<20}")
+    print("-"*80)
+
+    # Isi tabel
+    for d in last_week:
+        tgl = d.get("tanggal", "????-??-??")
+        langkah_bar = "█" * int((d["langkah"] / max_langkah) * 20)
+        air_bar = "▒" * int((d["air"] / max_air) * 10)
+        kalori_bar = "▓" * int((d["kalori"] / max_kalori) * 15)
+
+        print(f"{tgl:<12} | {langkah_bar:<25} | {air_bar:<15} | {kalori_bar:<20}")
+
+    print("-"*80)
+    print("Legenda:")
+    print("█ = Langkah  ▒ = Air (L)  ▓ = Kalori (Kcal)")
+    print("="*60 + "\n")
+
+
 
 def reset_progres():
     """Menghapus seluruh data progres"""
