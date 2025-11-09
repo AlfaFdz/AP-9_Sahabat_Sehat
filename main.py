@@ -1,8 +1,10 @@
-from food import list_foods, show_food_detail
-from quiz import quiz_Normal,quiz_Easy, quiz_Hard
-from decorasi import decorate, validasi_menu, validasi_quiz, validasi_tipe_quiz
-from food import FOODS
-from BMI import program_bmi
+from sahabat_sehat import progress
+from sahabat_sehat.food import list_foods, show_food_detail, FOODS
+from sahabat_sehat.quiz import quiz_Normal, quiz_Easy, quiz_Hard
+from sahabat_sehat.decorasi import decorate, validasi_menu, validasi_quiz, validasi_tipe_quiz
+from sahabat_sehat.BMI import program_bmi
+from sahabat_sehat.progress import menu_progres
+
 
 decorate()
 while True:
@@ -15,10 +17,11 @@ while True:
     print('6. 📚Lihat riwayat BMI')
     print('7. 📚Bersihkan riwayat BMI')
     print('8. 💧Rencana kebutuhan cairan')
-    print('9. ⛔Keluar')
+    print('9. 📈Progres Harian')
+    print('10. ⛔Keluar')
 
     ansa = input("Pilih Menu : ")
-    pilih = str(validasi_menu(ansa,8))
+    pilih = str(validasi_menu(ansa,10))
 
     if pilih == '1':
         list_foods()
@@ -52,7 +55,10 @@ while True:
 
     elif pilih == '8':
         pass
-
+    
     elif pilih == '9':
+        menu_progres()
+
+    elif pilih == '10':
         print('program dihentikan.')
         break

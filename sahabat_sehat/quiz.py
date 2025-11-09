@@ -1,5 +1,5 @@
 import random
-from food import FOODS
+from sahabat_sehat.food import FOODS
 
 def quiz_Normal(n):
     questions = random.sample(FOODS, n)
