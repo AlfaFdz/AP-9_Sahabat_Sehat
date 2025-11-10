@@ -1,0 +1,212 @@
+[
+  {
+    "name": "Nasi Putih",
+    "cal": 130,
+    "protein": 2.7,
+    "carbs": 28.0,
+    "fat": 0.3
+  },
+  {
+    "name": "Nasi Merah",
+    "cal": 111,
+    "protein": 2.6,
+    "carbs": 23.0,
+    "fat": 0.9
+  },
+  {
+    "name": "Roti Tawar",
+    "cal": 80,
+    "protein": 3.0,
+    "carbs": 14.0,
+    "fat": 1.0
+  },
+  {
+    "name": "Telur Ayam",
+    "cal": 78,
+    "protein": 6.3,
+    "carbs": 0.6,
+    "fat": 5.3
+  },
+  {
+    "name": "Ayam Panggang",
+    "cal": 165,
+    "protein": 31.0,
+    "carbs": 0.0,
+    "fat": 3.6
+  },
+  {
+    "name": "Ikan Tuna",
+    "cal": 132,
+    "protein": 29.0,
+    "carbs": 0.0,
+    "fat": 1.0
+  },
+  {
+    "name": "Tahu",
+    "cal": 76,
+    "protein": 8.1,
+    "carbs": 1.9,
+    "fat": 4.8
+  },
+  {
+    "name": "Tempe",
+    "cal": 192,
+    "protein": 20.3,
+    "carbs": 7.6,
+    "fat": 10.8
+  },
+  {
+    "name": "Sapi Giling",
+    "cal": 250,
+    "protein": 26.0,
+    "carbs": 0.0,
+    "fat": 17.0
+  },
+  {
+    "name": "Kentang Rebus",
+    "cal": 87,
+    "protein": 2.0,
+    "carbs": 20.1,
+    "fat": 0.1
+  },
+  {
+    "name": "Pisang",
+    "cal": 105,
+    "protein": 1.3,
+    "carbs": 27.0,
+    "fat": 0.3
+  },
+  {
+    "name": "Apel",
+    "cal": 95,
+    "protein": 0.5,
+    "carbs": 25.0,
+    "fat": 0.3
+  },
+  {
+    "name": "Susu Rendah Lemak",
+    "cal": 102,
+    "protein": 6.8,
+    "carbs": 12.0,
+    "fat": 2.4
+  },
+  {
+    "name": "Yoghurt Plain",
+    "cal": 59,
+    "protein": 10.0,
+    "carbs": 3.6,
+    "fat": 0.4
+  },
+  {
+    "name": "Keju Cheddar",
+    "cal": 120,
+    "protein": 7.0,
+    "carbs": 0.4,
+    "fat": 10.0
+  },
+  {
+    "name": "Almond",
+    "cal": 174,
+    "protein": 6.4,
+    "carbs": 6.1,
+    "fat": 15.2
+  },
+  {
+    "name": "Minyak Goreng",
+    "cal": 120,
+    "protein": 0.0,
+    "carbs": 0.0,
+    "fat": 14.0
+  },
+  {
+    "name": "Soto Ayam",
+    "cal": 250,
+    "protein": 20.0,
+    "carbs": 10.0,
+    "fat": 14.0
+  },
+  {
+    "name": "Mie Instan",
+    "cal": 380,
+    "protein": 7.0,
+    "carbs": 50.0,
+    "fat": 16.0
+  },
+  {
+    "name": "Salad Hijau",
+    "cal": 15,
+    "protein": 1.4,
+    "carbs": 2.9,
+    "fat": 0.2
+  },
+  {
+    "name": "Udang Rebus",
+    "cal": 99,
+    "protein": 24.0,
+    "carbs": 0.2,
+    "fat": 0.3
+  },
+  {
+    "name": "Daging Kambing",
+    "cal": 258,
+    "protein": 25.0,
+    "carbs": 0.0,
+    "fat": 17.0
+  },
+  {
+    "name": "Ikan Salmon",
+    "cal": 208,
+    "protein": 20.0,
+    "carbs": 0.0,
+    "fat": 13.0
+  },
+  {
+    "name": "Brokoli Rebus",
+    "cal": 35,
+    "protein": 2.4,
+    "carbs": 7.2,
+    "fat": 0.4
+  },
+  {
+    "name": "Wortel Rebus",
+    "cal": 35,
+    "protein": 0.8,
+    "carbs": 8.2,
+    "fat": 0.2
+  },
+  {
+    "name": "Oatmeal",
+    "cal": 68,
+    "protein": 2.4,
+    "carbs": 12.0,
+    "fat": 1.4
+  },
+  {
+    "name": "Dada Ayam Rebus",
+    "cal": 165,
+    "protein": 31.0,
+    "carbs": 0.0,
+    "fat": 3.6
+  },
+  {
+    "name": "Nugget Ayam",
+    "cal": 296,
+    "protein": 15.0,
+    "carbs": 18.0,
+    "fat": 18.0
+  },
+  {
+    "name": "Sate Ayam",
+    "cal": 270,
+    "protein": 25.0,
+    "carbs": 5.0,
+    "fat": 16.0
+  },
+  {
+    "name": "Sup Sayur",
+    "cal": 90,
+    "protein": 4.0,
+    "carbs": 14.0,
+    "fat": 2.0
+  }
+]
