@@ -1,3 +1,5 @@
+FILE_NAME = 'riwayat.txt'
+
 def hitung_bmi(berat, tinggi):
     try:
         bmi = berat / (tinggi ** 2)
@@ -11,7 +13,7 @@ def klasifikasi_bmi(bmi):
     elif 18.5 <= bmi < 24.9:
         return (2, "Berat Badan Normal")
     elif 25.0 <= bmi < 29.9:
-        return (3, "Berat Badan Berlebih (Pre-obesitas)")
+        return (3, "Berat Badan Berlebih")
     elif 30.0 <= bmi < 34.9:
         return (4, "Obesitas Kelas I")
     elif 35.0 <= bmi < 39.9:
@@ -20,14 +22,27 @@ def klasifikasi_bmi(bmi):
         return (6, "Obesitas Kelas III")
 
 def program_bmi():
-    print("cek BMI")
-    
+    print("\n--- Hitung BMI ---")
+    entry_id = ""
+    bmi_hasil = 0
+    berat = 0
+    tinggi_cm = 0
+
     while True:
         try:
+            entry_id = input("Masukkan Entry ID: ")
             berat = float(input("Masukkan Berat Badan (kg): "))
             tinggi_cm = float(input("Masukkan Tinggi Badan (cm): "))
             
             tinggi_m = tinggi_cm / 100
+
+            if berat >= 590:
+                print("\n Berat melebihi kapasitas manusia normal")
+                continue  
+
+            if tinggi_m >= 2.51:
+                print("\n Tinggi melebihi kapasitas manusia normal")
+                continue              
             
             if berat <= 0 or tinggi_m <= 0:
                 print("\n Berat dan Tinggi harus bernilai positif. Silakan coba lagi.")
@@ -35,7 +50,7 @@ def program_bmi():
             
             # Hitung BMI
             bmi_hasil = hitung_bmi(berat, tinggi_m)
-            
+
             break
             
         except ValueError:
@@ -51,15 +66,33 @@ def program_bmi():
     print("\n--- Hasil Perhitungan BMI ---")
     print(f"Berat Badan: {berat} kg")
     print(f"Tinggi Badan: {tinggi_cm} cm")
-    print(f"Nilai BMI Anda: **{bmi_hasil:.2f}**")
-    print(f"Kategori: **{kategori}**")
+    print(f"Nilai BMI Anda: {bmi_hasil:.2f}")
+    print(f"Kategori: {kategori}")
     
     if kode > 2:
-        print("\n*Status ini menunjukkan potensi risiko kesehatan yang meningkat.*")
+        print("\n Status ini menunjukkan potensi risiko kesehatan yang meningkat.")
     elif kode == 1:
-        print("\n*Status ini menunjukkan potensi risiko kesehatan.*")
+        print("\n Status ini menunjukkan potensi risiko kesehatan.")
     else:
-        print("\n*Status ini berada dalam kisaran berat badan yang sehat.*")
+        print("\n Status ini berada dalam kisaran berat badan yang sehat.")
 
-if __name__ == "__main__":
-    program_bmi()
+    return entry_id, bmi_hasil, kategori, kode
+
+
+def input_history():
+    entry_id, bmi, kategori, kode = program_bmi()
+
+    if not entry_id:
+        print("ID tidak boleh kosong.")
+        return
+    if bmi <= 0:
+        print("Data BMI tidak valid.")
+        return
+
+    try:
+        f = open(FILE_NAME, 'a')
+        f.write(f"{entry_id}|{bmi:.2f}|{kategori:20}\n")
+        f.close()
+        print("Data berhasil disimpan.")
+    except:
+        print("Gagal menyimpan data.")
