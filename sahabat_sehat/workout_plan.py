@@ -1,12 +1,12 @@
 def workout_plan(kode):
     while True:
         try:
-            tujuan = int(input("""\nApa tujuan Anda melakukan workout? 
+            print("""\nApa tujuan Anda melakukan workout? 
 1. menurunkan berat badan 
 2. meningkatkan kebugaran fisik
 3. meningkatkan massa otot
-"""))
-
+""")        
+            tujuan = int(input("Pilih menu berapa: "))
             if tujuan == 1:
                 if 3 <= kode <= 6:
                     try:
@@ -19,51 +19,50 @@ Anda membutuhkan latihan kardio dan kekuatan otot besar (Full Body Low-Impact HI
 2️⃣ Meningkatkan metabolisme (efek afterburn) selama 24–48 jam
 3️⃣ Tetap aman untuk sendi dan lutut
 
-🧭 Prinsip Umum:
-    Durasi: 45–60 menit
-    Frekuensi: 1x per minggu, tapi intens dan aman
-    Fokus: Full Body + Low Impact HIIT + Strength
-    
 💪 Workout Terbaik untuk Anda:
-    1️⃣  Pemanasan (5–8 menit)
-    Tujuan: naikkan detak jantung, siapkan sendi.
-    March in place – 1 menit
-    Shoulder roll – 30 detik
-    Arm circle – 30 detik
-    Side step + swing arm – 2 menit
-    Squat ringan – 1 menit
-    Dynamic stretching (hamstring, paha, betis) – 2 menit
+
+1️⃣  Pemanasan (5–8 menit)
+Tujuan: naikkan detak jantung, siapkan sendi.
+March in place – 1 menit
+Shoulder roll – 30 detik
+Arm circle – 30 detik
+Side step + swing arm – 2 menit
+Squat ringan – 1 menit
+Dynamic stretching (hamstring, paha, betis) – 2 menit
     
-    2️⃣  Sesi Utama: Full Body Low-Impact HIIT (30–35 menit)
-        Format:
-        40 detik latihan → 20 detik istirahat
-        3 set total, tiap set berisi 6 gerakan
-        Istirahat antar set: 2 menit
-        Gerakan per Set:
-        Step touch (gerak kanan–kiri cepat)
-        Bodyweight squat (bisa pakai kursi kalau butuh tumpuan)
-        Arm punch (tinju di udara, cepat tapi terkontrol)
-        Glute bridge (angkat pinggul, posisi telentang)
-        Standing knee lift (angkat lutut bergantian, seperti jalan di tempat)
-        Wall push-up / knee push-up
-        ➡️  Setelah 1 set = istirahat 2 menit, lalu ulangi 2 kali lagi (total 3 set)
+2️⃣  Sesi Utama: Full Body Low-Impact HIIT (30–35 menit)
+Format:
+40 detik latihan → 20 detik istirahat
+3 set total, tiap set berisi 6 gerakan
+Istirahat antar set: 2 menit
+
+Gerakan per Set:
+Step touch (gerak kanan–kiri cepat)
+Bodyweight squat (bisa pakai kursi kalau butuh tumpuan)
+Arm punch (tinju di udara, cepat tapi terkontrol)
+Glute bridge (angkat pinggul, posisi telentang)
+Standing knee lift (angkat lutut bergantian, seperti jalan di tempat)
+Wall push-up / knee push-up
+➡️  Setelah 1 set = istirahat 2 menit, lalu ulangi 2 kali lagi (total 3 set)
         
-    3️⃣  Kekuatan Inti (10 menit)
-        Fokus: otot perut & punggung bawah (penopang tubuh)
-        Standing side crunch – 12x per sisi
-        Plank lutut / standing plank – 30 detik
-        Superman pose (angkat tangan & kaki saat tengkurap) – 10x
-        Dead bug (versi ringan) – 10x
-        Ulangi 2–3 ronde.
-     4️⃣  Pendinginan (5–10 menit)
-        Peregangan betis, paha, punggung, bahu
-        Deep breathing
-        Gerakan yoga ringan seperti “child’s pose”
+3️⃣  Kekuatan Inti (10 menit)
+Fokus: otot perut & punggung bawah (penopang tubuh)
+
+Standing side crunch – 12x per sisi
+Plank lutut / standing plank – 30 detik
+Superman pose (angkat tangan & kaki saat tengkurap) – 10x
+Dead bug (versi ringan) – 10x
+Ulangi 2–3 ronde.
+
+4️⃣  Pendinginan (5–10 menit)
+Peregangan betis, paha, punggung, bahu
+Deep breathing
+Gerakan yoga ringan seperti “child’s pose”
         
-    ⚖️  Tips agar hasil tetap maksimal meski hanya olahraga 1x/minggu:
-        Tetap aktif setiap hari: jalan kaki 15–30 menit, naik tangga, banyak berdiri.Defisit kalori ringan: makan 300–500 kalori di bawah kebutuhan harian.
-        Tingkatkan protein: ayam, ikan, telur, tahu, tempe → menjaga massa otot.
-        Minum air cukup & tidur 7–8 jam/hari.
+⚖️  Tips agar hasil tetap maksimal meski hanya olahraga 1x/minggu:
+    Tetap aktif setiap hari: jalan kaki 15–30 menit, naik tangga, banyak berdiri.Defisit kalori ringan: makan 300–500 kalori di bawah kebutuhan harian.
+    Tingkatkan protein: ayam, ikan, telur, tahu, tempe → menjaga massa otot.
+    Minum air cukup & tidur 7–8 jam/hari.
                                     """)
                                 return
                             case 2:
