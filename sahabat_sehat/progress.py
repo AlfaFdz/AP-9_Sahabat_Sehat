@@ -7,7 +7,7 @@ DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data"
 os.makedirs(DATA_DIR, exist_ok=True)
 PROGRESS_FILE = os.path.join(DATA_DIR, "progress.json")
 
-# ====== UTILITAS DASAR ======
+# load and save 
 def load_progress():
     """Memuat data progres dari file JSON"""
     if not os.path.exists(PROGRESS_FILE):
@@ -24,13 +24,13 @@ def save_progress(data):
     with open(PROGRESS_FILE, "w") as f:
         json.dump(data, f, indent=4)
 
-# --- FUNGSI INPUT BANTU ---
+# input helper
 def get_validated_input(prompt, target_type, default_value):
     """Fungsi helper untuk validasi input saat update/edit."""
     while True:
         user_input = input(prompt)
         if not user_input:
-            # Pengguna menekan Enter (melewatkan)
+            # menekan Enter (skip)
             return default_value
         try:
             # Mencoba konversi ke tipe yang diinginkan (int atau float)
@@ -38,15 +38,15 @@ def get_validated_input(prompt, target_type, default_value):
         except ValueError:
             print(f"Input tidak valid. Harap masukkan angka {target_type.__name__}.")
 
-# ====== FITUR UTAMA (IDE 1, 2, 3) ======
+# fitur
 
-# --- (IDE 1: Tambah / Update) ---
+# tambah / update
 def tambah_atau_update_progres():
     """Menambahkan atau memperbarui progres harian pengguna"""
     data = load_progress()
     tanggal = datetime.now().strftime("%Y-%m-%d")
 
-    # Ambil data hari ini jika ada, atau buat data baru
+    # ambil data hari ini jika ada, atau buat data baru
     progress_hari_ini = data.get(tanggal, {
         "langkah": 0, "air": 0.0, "kalori": 0, "berat": 0.0
     })
@@ -55,7 +55,7 @@ def tambah_atau_update_progres():
     print("Tekan Enter untuk melewati jika tidak ada perubahan.")
 
     try:
-        # Gunakan fungsi helper untuk input yang lebih bersih
+        # gunakan fungsi helper untuk input yang lebih bersih
         langkah_baru = get_validated_input(
             f"Masukkan jumlah langkah (sebelumnya: {progress_hari_ini['langkah']}): ",
             int, progress_hari_ini['langkah']
@@ -73,7 +73,7 @@ def tambah_atau_update_progres():
             float, progress_hari_ini['berat']
         )
         
-        # Update dictionary
+        # update dictionary
         progress_hari_ini = {
             "langkah": langkah_baru,
             "air": air_baru,
@@ -90,8 +90,8 @@ def tambah_atau_update_progres():
     except Exception as e:
         print(f"Terjadi kesalahan: {e}")
 
-# --- (FITUR ASLI: Lihat Progres) ---
-# --- (FITUR ASLI: Lihat Progres) ---
+
+# LIHAT PROGRES
 def lihat_progres():
     """Menampilkan seluruh data progres DENGAN PAGINATION"""
     data = load_progress()
@@ -103,7 +103,7 @@ def lihat_progres():
     
     sorted_keys = sorted(data.keys())
     
-    # Tentukan berapa banyak data yang ingin ditampilkan per "halaman"
+    # menampilkan data perhalaman "5"
     PAGE_SIZE = 5 
     
     if not sorted_keys:
@@ -148,8 +148,7 @@ def lihat_progres():
         print(f"  🔥 Kalori: {nilai.get('kalori', 0)}")
         print(f"  ⚖️ Berat: {nilai.get('berat', 0)} kg")
 
-# --- (FITUR ASLI: Grafik Mingguan) ---
-# --- (FITUR ASLI: Grafik Mingguan) ---
+# --------------------------------------------------------------->>>>>>>>>>>>>>>>>>GRAFIK MINGGUAN -<<<<<<<<<<<<<<<
 def grafik_mingguan():
     print("\n" + "="*60)
     print("📊  GRAFIK PROGRES MINGGUAN (vs. Target)".center(60))
@@ -160,7 +159,7 @@ def grafik_mingguan():
         print("❌ Belum ada data progres yang bisa ditampilkan.")
         return
 
-    # --- (PERUBAHAN UTAMA DIMULAI DI SINI) ---
+    # PERUBAHAN UTAMA DIMULAI DI SINI
     print("Silakan masukkan target harian Anda untuk skala grafik.")
     print("Tekan Enter untuk menggunakan nilai default.")
     
@@ -181,7 +180,7 @@ def grafik_mingguan():
     except ValueError:
         print("Input tidak valid. Harap masukkan angka.")
         return
-    # --- (PERUBAHAN UTAMA SELESAI) ---
+    # PERUBAHAN UTAMA SELESAI
 
 
     # Mengurutkan data berdasarkan tanggal
@@ -225,7 +224,7 @@ def grafik_mingguan():
     print(f"█ = Langkah (Target: {target_langkah})  ▒ = Air (Target: {target_air} L)  ▓ = Kalori (Target: {target_kalori} Kkal)")
     print("="*60 + "\n")
 
-# --- (IDE 2: Fitur Edit) ---
+# ---------------------------------------------------------------------------------------------->>>>>>FITUR EDIT<<<<<<<<<<<<<<<<<------
 def edit_progres():
     """Mengedit progres untuk tanggal tertentu."""
     data = load_progress()
@@ -274,7 +273,7 @@ def edit_progres():
     except Exception as e:
         print(f"Terjadi kesalahan: {e}")
 
-# --- (IDE 2: Fitur Hapus per Tanggal) ---
+# --------------------------------------------------------------------------------------->>>>>HAPUS DATA PER TANGGAL<<<<<<<<<<<<<<<<<<<<<<<<<<
 def hapus_progres_tanggal():
     """Menghapus data progres untuk tanggal tertentu."""
     data = load_progress()
@@ -300,7 +299,7 @@ def hapus_progres_tanggal():
     else:
         print("❎ Aksi dibatalkan.\n")
 
-# --- (IDE 3: Fitur Statistik) ---
+# -------------------------------------------------------------------------------------->>>>>>>>FITUR STATISTIK<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 def lihat_statistik():
     """Menampilkan ringkasan statistik dari data progres."""
     data = load_progress()
@@ -316,7 +315,7 @@ def lihat_statistik():
     sorted_data = dict(sorted(data.items()))
     sorted_keys = list(sorted_data.keys())
 
-    # --- 1. Analisis Berat Badan ---
+    #  1. Analisis Berat Badan 
     print("\n⚖️ Analisis Berat Badan:")
     # Ambil semua data berat yang valid (bukan 0)
     berat_entries = [(t, d['berat']) for t, d in sorted_data.items() if d.get('berat', 0) > 0]
@@ -335,7 +334,7 @@ def lihat_statistik():
     else:
         print("  (Tidak ada data berat badan yang tercatat)")
 
-    # --- 2. Rata-rata 7 Hari Terakhir ---
+    #  2. Rata-rata 7 Hari Terakhir 
     print("\n📊 Rata-rata 7 Hari Terakhir:")
     last_7_keys = sorted_keys[-7:]
     n = len(last_7_keys)
@@ -351,7 +350,7 @@ def lihat_statistik():
     else:
         print("  (Tidak ada data)")
 
-    # --- 3. Rekor Tertinggi ---
+    #  3. Rekor Tertinggi 
     print("\n🏆 Rekor Tertinggi (Keseluruhan):")
     try:
         max_langkah_day = max(sorted_data, key=lambda k: sorted_data[k].get('langkah', 0))
@@ -374,7 +373,7 @@ def lihat_statistik():
     print("="*60 + "\n")
 
 
-# --- (FITUR ASLI: Reset) ---
+# ------------------------------------------------------------------------------!!!!>>>>>>RESET PROGRES<<<<<<<<<<<<<<<<<<<<<<<<
 def reset_progres():
     """Menghapus seluruh data progres"""
     konfirmasi = input("\n‼️ PERINGATAN: Aksi ini akan menghapus SEMUA data progres.\n"
@@ -386,7 +385,7 @@ def reset_progres():
     else:
         print("❎ Aksi dibatalkan.\n")
 
-# ====== MENU UTAMA PROGRES (Diperbarui) ======
+# --------------------------------------------------------------------------------->>>>>>>>>>>>>>>TAMPILAN MENU UTAMA<<<<<<<<<<<<<<<<<<<<<<<<
 def menu_progres():
     """Menu utama fitur Progres Harian"""
     while True:

@@ -47,29 +47,9 @@ Aplikasi ini tidak memerlukan dependensi eksternal (tidak ada `requirements.txt`
 
 Berikut adalah gambaran umum struktur file dan direktori dalam proyek ini.
 
-.
-│   .gitignore
-│   LICENSE
-│   main.py           (Titik masuk utama aplikasi / Menu)
-│   README.md         (Dokumentasi ini)
-│   requirements.txt  (Kosong, tidak ada dependensi eksternal)
-│   riwayat.txt       (Database riwayat BMI pengguna)
-│
-├───data
-│   │   foods.json    (Entah digunakan atau tidak saya tak taulah)
-│   │   progress.json (Database untuk fitur Progres Harian)
-│
-└───sahabat_sehat     (Paket Python berisi semua logika inti)
-    │   BMI.py          (Logika kalkulasi dan klasifikasi BMI)
-    │   calory_control.py (Logika rencana kalori harian)
-    │   decorasi.py     (Fungsi untuk banner UI dan validasi input)
-    │   food.py         (Database makanan hardcode [list 'FOODS'] & fungsi display)
-    │   history.py      (Logika untuk membaca/menghapus riwayat.txt)
-    │   progress.py     (Logika untuk fitur Progres Harian)
-    │   quiz.py         (Logika untuk fitur kuis)
-    │   water_plan.py   (Logika untuk rencana kebutuhan cairan)
-    │   workout_plan.py (Logika untuk rencana latihan)
-    │   __init__.py
+## 📁 Struktur Proyek
+
+![Struktur Folder Sahabat Sehat](SS.png)
 
 ---
 
