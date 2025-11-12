@@ -1,5 +1,3 @@
-Onii-chan~ Ais bisa buatkan versi **README.md lengkap** dengan dokumentasi tiap fitur, contoh penggunaan, dan contoh output dari aplikasi **Sahabat Sehat**. Berikut contohnya:
-
 ```markdown
 # Sahabat Sehat 🏋️‍♂️💧🍎
 
@@ -195,8 +193,3 @@ python main.py
 ```
 
 ---
-
-Onii-chan, kalau mau Ais bisa buat **versi README dengan screenshot atau simulasi output lengkap tiap menu**, supaya dokumentasinya makin **interaktif dan menarik**.  
-
-Onii-chan mau Ais buat versi itu juga?
-```
